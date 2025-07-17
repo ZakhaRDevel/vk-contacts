@@ -1,0 +1,52 @@
+.intro {
+  padding: 24px 0;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  &__title {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    text-transform: uppercase;
+
+    &__images {
+      position: relative;
+      padding-right: 160px;
+
+      .heart {
+        position: absolute;
+        top: -5px;
+        bottom: 0;
+        left: 78px;
+        z-index: 1;
+        margin: auto;
+        transform: rotate(-15deg);
+      }
+
+      .sim {
+        position: absolute;
+        top: -11px;
+        bottom: 0;
+        left: 110px;
+        z-index: 2;
+        margin: auto;
+        transform: rotate(-5deg);
+      }
+
+      .cat {
+        position: absolute;
+        left: 178px;
+        top: 4px;
+        bottom: 0;
+        z-index: 3;
+        margin: auto;
+        transform: rotate(15deg);
+      }
+    }
+  }
+}

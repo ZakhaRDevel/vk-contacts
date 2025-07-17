@@ -1,1 +1,7 @@
-/* You can add global styles to this file, and also import other style files */
+@use 'assets/scss/reset' as *;
+@use 'assets/scss/variables' as *;
+@use 'assets/scss/base' as *;
+@import 'assets/fonts/TkachenkoSketch4F/stylesheet.css';
+@import 'assets/fonts/EuclidCircularA/stylesheet.css';
+
+

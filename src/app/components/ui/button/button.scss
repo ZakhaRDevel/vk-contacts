@@ -1,0 +1,49 @@
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 48px;
+  width: max-content;
+  height: max-content;
+  padding: 12px 25px;
+
+  border-radius: 32px;
+  border: none;
+  cursor: pointer;
+
+  font-weight: 600;
+  font-size: 14px;
+
+  transition: background-color 0.2s,
+  color 0.2s;
+
+
+  &.primary {
+    color: var(--color-text-alt);
+    background-color: var(--color-primary);
+
+    @media (hover: hover) {
+      &:hover {
+        &:not(:disabled) {
+          color: #fffc;
+        }
+      }
+    }
+
+    &:active {
+      &:not(:disabled) {
+        color: #fffc;
+      }
+    }
+  }
+
+  &.full {
+    width: 100%;
+  }
+
+  &:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+}

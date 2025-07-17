@@ -1,0 +1,37 @@
+.footer {
+  padding: 32px 0 12px;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  &__link {
+    color: #758494;
+    transition: color .2s;
+
+    &:hover {
+      color: #3C78D8FF;
+    }
+  }
+
+  &__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    gap: 15px;
+
+    .copyright {
+      max-width: 220px;
+    }
+
+    .copyright, .age {
+      color: #758494;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 18px;
+    }
+
+  }
+}
