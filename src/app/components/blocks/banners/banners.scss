@@ -1,0 +1,45 @@
+.banners {
+  &__slider {
+    overflow: hidden;
+
+    &__container {
+      display: flex;
+      gap: 10px;
+    }
+
+    &__slide {
+      min-width: 0;
+      flex: 0 0 100%;
+
+      .banner {
+        height: 100%;
+        padding: 40px 16px;
+        min-height: 685px;
+        background-color: #00AEEF;
+        border-radius: 16px;
+      }
+    }
+  }
+
+  &__dots {
+    display: flex;
+    justify-content: center;
+    gap: 17px;
+    margin-top: 12px;
+  }
+
+  &__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: none;
+    background-color: #E3E4E7;
+    cursor: pointer;
+    padding: 0;
+    transition: background-color .2s;
+
+    &.active {
+      background-color: #00AEEF;
+    }
+  }
+}

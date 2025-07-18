@@ -1,0 +1,33 @@
+<div class="banners">
+  <div class="banners__slider"
+       emblaCarousel
+       [options]="cardsOptions"
+       [subscribeToEvents]="['select']"
+       (emblaChange)="onEmblaChanged($event)">
+    <div class="banners__slider__container">
+      <div class="banners__slider__slide">
+        <div class="banner one">
+          1
+        </div>
+      </div>
+      <div class="banners__slider__slide">
+        <div class="banner two">
+          2
+        </div>
+      </div>
+    </div>
+
+    <div class="banners__dots">
+      @for (dot of [0, 1]; track $index) {
+        <button
+          class="banners__dot"
+          [class.active]="selectedIndex() === $index"
+          (click)="scrollTo($index)"
+          type="button"
+          [attr.aria-label]="'Перейти к слайду ' + ($index + 1)"
+        >
+        </button>
+      }
+    </div>
+  </div>
+</div>
