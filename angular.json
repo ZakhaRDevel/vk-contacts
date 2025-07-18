@@ -61,6 +61,7 @@
             },
             "static": {
               "outputMode": "static",
+              "baseHref": "/vk-contacts/",
               "budgets": [
                 {
                   "type": "initial",
