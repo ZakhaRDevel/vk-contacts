@@ -1,0 +1,23 @@
+@font-face {
+  font-family: "Tkachenko Sketch 4F";
+  src: url("TkachenkoSketch4F-Bold.eot");
+  src: local("Tkachenko Sketch 4F Bold"), local("TkachenkoSketch4F-Bold"),
+    url("TkachenkoSketch4F-Bold.eot?#iefix") format("embedded-opentype"),
+    url("TkachenkoSketch4F-Bold.woff2") format("woff2"),
+    url("TkachenkoSketch4F-Bold.woff") format("woff"),
+    url("TkachenkoSketch4F-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Tkachenko Sketch 4F";
+  src: url("TkachenkoSketch4F.eot");
+  src: local("Tkachenko Sketch 4F"), local("TkachenkoSketch4F"),
+    url("TkachenkoSketch4F.eot?#iefix") format("embedded-opentype"),
+    url("TkachenkoSketch4F.woff2") format("woff2"),
+    url("TkachenkoSketch4F.woff") format("woff"),
+    url("TkachenkoSketch4F.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}

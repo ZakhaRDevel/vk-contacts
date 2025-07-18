@@ -1,0 +1,28 @@
+:root {
+  --color-primary: #00AEEF;
+  --color-bg: #ffffff;
+  --color-text: #434C5E;
+  --color-text-alt: #FFFFFF;
+  --text-gradient: linear-gradient(270deg, #FF22A6 0%, #FD25A9 9.09%, #F72CB2 18.18%, #EC36BE 27.27%, #DC43CD 36.36%, #C850DB 45.45%, #AE5BE8 54.55%, #9165F2 63.64%, #706DF9 72.73%, #4D73FD 81.82%, #2576FE 90.91%, #0077FF 100%);
+
+  --font-main: 'Euclid Circular A', Arial, sans-serif;
+  --font-accent: 'Tkachenko Sketch 4F', cursive;
+
+  --breakpoint-xs: 480px;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+
+  --h1-font-size: 47px;
+  --h1-font-weight: 700;
+
+  --h2-font-size: 36px;
+  --h2-font-weight: 600;
+
+  --h3-font-size: 28px;
+  --h3-font-weight: 600;
+
+  --h4-font-size: 22px;
+  --h4-font-weight: 600;
+}
