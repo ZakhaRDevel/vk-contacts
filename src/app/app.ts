@@ -4,6 +4,9 @@ import {Footer} from './components/blocks/footer/footer';
 import {Intro} from './components/blocks/intro/intro';
 import {Cards} from './components/blocks/cards/cards';
 import {Banners} from './components/blocks/banners/banners';
+import {Container} from './components/blocks/container/container';
+import {NgOptimizedImage} from '@angular/common';
+import {AccordionComponent} from './components/ui/accordion/accordion';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +18,9 @@ import {Banners} from './components/blocks/banners/banners';
     Intro,
     Cards,
     Banners,
+    Container,
+    NgOptimizedImage,
+    AccordionComponent,
   ],
 })
 export class App {

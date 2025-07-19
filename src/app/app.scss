@@ -1,5 +1,5 @@
 .steps {
-  padding: 19px 0;
+  padding: 41px 0;
 
   &__title {
     text-align: center;
@@ -9,22 +9,32 @@
   &__list {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 26px;
   }
 
   &__list-item {
     display: flex;
     position: relative;
+    width: 86%;
+    aspect-ratio: 273 / 326;
+    max-width: 500px;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
 
     .arrow {
       position: absolute;
-      right: 45px;
-      bottom: -67px;
+      right: 14px;
+      bottom: -62px;
       z-index: 2;
 
       &.left {
         right: unset;
-        left: 45px;
+        left: 0;
+        bottom: -66px;
         transform: rotateY(180deg);
       }
 
@@ -33,10 +43,14 @@
 }
 
 .faq {
-  padding: 41px 0 29px;
+  padding: 7px 0 29px;
 
   &__title {
     text-align: center;
+  }
+
+  &__list {
+    margin-top: 31px;
   }
 }
 
