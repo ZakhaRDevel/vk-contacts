@@ -1,12 +1,15 @@
 import {Component, signal, viewChild} from '@angular/core';
 import {EmblaCarouselDirective, EmblaEventType, EmblaOptionsType} from "embla-carousel-angular";
 import {NgOptimizedImage} from "@angular/common";
+import {Button} from '../../ui/button/button';
 
 @Component({
   selector: 'app-banners',
-    imports: [
-        EmblaCarouselDirective,
-    ],
+  imports: [
+    EmblaCarouselDirective,
+    NgOptimizedImage,
+    Button,
+  ],
   templateUrl: './banners.html',
   styleUrl: './banners.scss'
 })

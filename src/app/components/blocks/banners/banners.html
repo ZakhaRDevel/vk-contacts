@@ -1,33 +1,63 @@
 <div class="banners">
-  <div class="banners__slider"
-       emblaCarousel
-       [options]="cardsOptions"
-       [subscribeToEvents]="['select']"
-       (emblaChange)="onEmblaChanged($event)">
-    <div class="banners__slider__container">
-      <div class="banners__slider__slide">
-        <div class="banner one">
-          1
-        </div>
-      </div>
-      <div class="banners__slider__slide">
-        <div class="banner two">
-          2
-        </div>
-      </div>
-    </div>
+  <div class="banners__inner">
+    <div class="banners__slider"
+         emblaCarousel
+         [options]="cardsOptions"
+         [subscribeToEvents]="['select']"
+         (emblaChange)="onEmblaChanged($event)">
+      <div class="banners__slider__container">
+        <div class="banners__slider__slide">
+          <div class="banner one">
+            <div class="banner__text">
+            <span>
+              Заведи
+              <img alt="lock" ngSrc="assets/img/phone.webp" width="199" height="197">
+              <img alt="heart" ngSrc="assets/img/heart.webp" width="201" height="197">
+              <img alt="cat" ngSrc="assets/img/cat.webp" width="198" height="194"></span> <br/>
 
-    <div class="banners__dots">
-      @for (dot of [0, 1]; track $index) {
-        <button
-          class="banners__dot"
-          [class.active]="selectedIndex() === $index"
-          (click)="scrollTo($index)"
-          type="button"
-          [attr.aria-label]="'Перейти к слайду ' + ($index + 1)"
-        >
-        </button>
-      }
+              <span>новый номер</span><br/>
+              <span>
+                для
+                <span class="alt">
+                  знакомств
+                  <img
+                    class="line"
+                    ngSrc="assets/img/line.svg"
+                    height="27"
+                    width="218"
+                    alt="line"></span></span>
+            </div>
+          </div>
+        </div>
+        <div class="banners__slider__slide">
+          <div class="banner two">
+            <div class="banner__text">
+              <span>на котором</span><br>
+              <span>не будет</span><br>
+              <span class="alt">привязки <img class="line" ngSrc="assets/img/line.svg" alt="line" height="93"
+                                              width="61"></span><br>
+              <span>к твоему адресу</span><br>
+              <span>и аккаунтам <img ngSrc="assets/img/lock.webp" height="394" width="398" alt="lock"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="banners__actions">
+        <app-button variant="secondary" [isFull]="true">Заказать сим-карту</app-button>
+        <div class="banners__dots">
+          @for (dot of [0, 1]; track $index) {
+            <button
+              class="banners__dot"
+              [class.active]="selectedIndex() === $index"
+              (click)="scrollTo($index)"
+              type="button"
+              [attr.aria-label]="'Перейти к слайду ' + ($index + 1)"
+            >
+            </button>
+          }
+        </div>
+      </div>
     </div>
   </div>
 </div>
