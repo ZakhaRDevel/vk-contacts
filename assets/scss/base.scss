@@ -68,3 +68,8 @@ a {
   background-clip: text;
   color: transparent;
 }
+
+.cdk-overlay-container {
+  -webkit-transform: translateZ(0); /* Safari hack */
+  transform: translateZ(0);
+}
