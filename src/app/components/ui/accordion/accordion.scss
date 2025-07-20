@@ -18,6 +18,7 @@
     line-height: 22.4px;
     font-weight: 500;
     text-align: left;
+    color: var(--color-text);
   }
 
   .accordion-icon {
@@ -56,6 +57,7 @@
   }
 
   .accordion-content {
+
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease;
@@ -66,6 +68,10 @@
   }
 
   .accordion-body {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
     padding: 0 0 20px 0;
     font-size: 14px;
     line-height: 1.5;

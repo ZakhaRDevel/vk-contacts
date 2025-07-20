@@ -53,6 +53,14 @@ h4 {
   line-height: 24px;
 }
 
+a {
+  color: var(--color-primary);
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 .gradient-text {
   background: var(--text-gradient);
   -webkit-background-clip: text;

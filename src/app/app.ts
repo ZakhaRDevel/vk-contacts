@@ -6,7 +6,7 @@ import {Cards} from './components/blocks/cards/cards';
 import {Banners} from './components/blocks/banners/banners';
 import {Container} from './components/blocks/container/container';
 import {NgOptimizedImage} from '@angular/common';
-import {AccordionComponent} from './components/ui/accordion/accordion';
+import {Faq} from './components/blocks/faq/faq';
 
 @Component({
   selector: 'app-root',
@@ -20,7 +20,7 @@ import {AccordionComponent} from './components/ui/accordion/accordion';
     Banners,
     Container,
     NgOptimizedImage,
-    AccordionComponent,
+    Faq,
   ],
 })
 export class App {
