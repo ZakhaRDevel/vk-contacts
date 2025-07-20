@@ -27,13 +27,18 @@ export class SwipeDownDirective {
   private startY = 0;
   private currentY = 0;
 
-  constructor(private elementRef: ElementRef) {}
+  constructor(private elementRef: ElementRef) {
+  }
 
   onTouchStart(event: TouchEvent): void {
     if (!this.enabled) return;
 
     this.isDragging.set(true);
     this.startY = event.touches[0].clientY;
+
+    if (event.touches.length === 1) {
+      event.preventDefault();
+    }
   }
 
   onTouchMove(event: TouchEvent): void {
@@ -43,6 +48,8 @@ export class SwipeDownDirective {
     const deltaY = this.currentY - this.startY;
 
     if (deltaY > 0) {
+      event.preventDefault();
+
       const translateY = Math.min(deltaY, this.threshold);
       const opacity = Math.max(0, 1 - translateY / this.threshold);
       const progress = translateY / this.threshold;
