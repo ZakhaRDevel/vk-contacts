@@ -55,7 +55,7 @@ export class ModalService implements OnDestroy {
       hasBackdrop: config.hasBackdrop ?? true,
       backdropClass: config.backdropClass ?? 'modal-backdrop',
       panelClass: config.panelClass ?? 'modal-panel',
-      scrollStrategy: this.overlay.scrollStrategies.block(),
+      scrollStrategy: this.overlay.scrollStrategies.reposition(),
     });
 
     const portal = new ComponentPortal(
