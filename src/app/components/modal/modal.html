@@ -8,16 +8,17 @@
   <div class="modal-swipe-indicator"></div>
   <div class="modal-header">
     @if (data?.title) {
-      <h4 class="modal-title">{{ data?.title }}</h4>
+    <h4 class="modal-title">{{ data?.title }}</h4>
     }
 
     <button
       class="modal-close"
       (click)="close()"
+      (touchstart)="close()"
       type="button"
       aria-label="Закрыть"
     >
-      <app-close-icon/>
+      <app-close-icon />
     </button>
   </div>
   <div class="modal-body">

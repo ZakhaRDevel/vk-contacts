@@ -24,7 +24,6 @@
   background: rgba(67, 76, 94, 0.20);
   border-radius: 2px;
   margin: 4px auto 0;
-  opacity: 0.6;
 }
 
 .modal-header {
@@ -50,6 +49,8 @@
   right: 16px;
   top: 18px;
   z-index: 10;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 
   &:hover {
     color: black;

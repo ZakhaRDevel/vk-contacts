@@ -27,8 +27,7 @@ export class SwipeDownDirective {
   private startY = 0;
   private currentY = 0;
 
-  constructor(private elementRef: ElementRef) {
-  }
+  constructor(private elementRef: ElementRef) {}
 
   onTouchStart(event: TouchEvent): void {
     if (!this.enabled) return;

@@ -1,8 +1,8 @@
-import {Component, Inject, Optional, signal, effect} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {ModalService} from '../../services/modal';
-import {SwipeDownDirective} from '../../directives/swipe-down.directive';
-import {CloseIcon} from '../svg/close-icon/close-icon';
+import { Component, Inject, Optional, signal, effect } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ModalService } from '../../services/modal';
+import { SwipeDownDirective } from '../../directives/swipe-down.directive';
+import { CloseIcon } from '../svg/close-icon/close-icon';
 
 @Component({
   selector: 'app-modal',
@@ -15,11 +15,10 @@ export class Modal {
   constructor(
     @Optional() @Inject('MODAL_DATA') public data: any,
     protected modalService: ModalService
-  ) {
-  }
+  ) {}
 
   close(): void {
-    this.modalService.close()
+    this.modalService.close();
   }
 
   onSwipeDown(): void {
