@@ -26,14 +26,14 @@ img {
 }
 
 /* CDK Overlay стили в стиле Tilda */
-//.modal-backdrop {
-//  background: rgba(0, 0, 0, 0.4);
-//  backdrop-filter: blur(2px);
-//}
-//
-//.modal-panel {
-//  z-index: 1000;
-//}
+.modal-backdrop {
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(2px);
+}
+
+.modal-panel {
+  z-index: 1000;
+}
 
 h1 {
   font-size: var(--h1-font-size);
