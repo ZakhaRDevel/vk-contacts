@@ -1,0 +1,13 @@
+.iframe-container {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+}
+
+iframe {
+  width: 100%;
+  height: calc(90dvh - 88px);
+  border: none;
+  border-radius: 0;
+  background: #ffffff;
+}

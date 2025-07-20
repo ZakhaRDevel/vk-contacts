@@ -1,0 +1,38 @@
+<app-modal>
+  <div class="sim-modal">
+    <button class="sim-modal__item" (click)="onPlasticClick()">
+      <span class="content">
+        <span class="icon">
+          <app-sim-icon/>
+        </span>
+
+        <span class="desc">
+          <h4>Пластиковая</h4>
+          <span class="text">С доставкой или самовывозом</span>
+        </span>
+      </span>
+      <span class="arrow">
+       <app-arrow/>
+      </span>
+    </button>
+    <a
+      href="https://www.yota.ru/e-sim/order"
+      target="_blank"
+      class="sim-modal__item"
+    >
+      <span class="content">
+        <span class="icon">
+          <app-esim-icon/>
+        </span>
+
+        <span class="desc">
+          <h4>eSIM</h4>
+          <span class="text">Быстрое оформление онлайн</span>
+        </span>
+      </span>
+      <span class="arrow">
+       <app-arrow/>
+      </span>
+    </a>
+  </div>
+</app-modal>

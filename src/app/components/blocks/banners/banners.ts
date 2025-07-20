@@ -1,7 +1,9 @@
-import {Component, signal, viewChild} from '@angular/core';
+import {Component, inject, signal, viewChild} from '@angular/core';
 import {EmblaCarouselDirective, EmblaEventType, EmblaOptionsType} from "embla-carousel-angular";
 import {NgOptimizedImage} from "@angular/common";
 import {Button} from '../../ui/button/button';
+import {ModalService} from '../../../services/modal';
+import {SimModal} from '../../modal/sim-modal/sim-modal';
 
 @Component({
   selector: 'app-banners',
@@ -19,6 +21,7 @@ export class Banners {
     align: 'start',
   };
   protected selectedIndex = signal(0);
+  modal = inject(ModalService);
 
   onEmblaChanged(event: EmblaEventType): void {
     if (event === 'select') {
@@ -31,5 +34,9 @@ export class Banners {
 
   protected scrollTo(index: number): void {
     this.emblaRef()?.emblaApi?.scrollTo(index);
+  }
+
+  onOpenModal() {
+    this.modal.open(SimModal, {data: {title: 'Выбери тип сим-карты'}});
   }
 }

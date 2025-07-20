@@ -1,21 +1,23 @@
-<div class="modal-content">
+<div
+  class="modal-content"
+  [class.closing]="modalService.isClosing()"
+  swipeDown
+  [threshold]="100"
+  (swipeDown)="onSwipeDown()"
+>
+  <div class="modal-swipe-indicator"></div>
   <div class="modal-header">
-    <h3 class="modal-title">{{ data?.title || "Модальное окно" }}</h3>
+    @if (data?.title) {
+      <h4 class="modal-title">{{ data?.title }}</h4>
+    }
+
     <button
       class="modal-close"
       (click)="close()"
       type="button"
       aria-label="Закрыть"
     >
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <path
-          d="M18 6L6 18M6 6L18 18"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
-      </svg>
+      <app-close-icon/>
     </button>
   </div>
   <div class="modal-body">

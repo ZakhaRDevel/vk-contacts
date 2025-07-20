@@ -44,7 +44,7 @@
       </div>
 
       <div class="banners__actions">
-        <app-button variant="secondary" [isFull]="true">Заказать сим-карту</app-button>
+        <app-button (btnClick)="onOpenModal()" variant="secondary" [isFull]="true">Заказать сим-карту</app-button>
         <div class="banners__dots">
           @for (dot of [0, 1]; track $index) {
             <button

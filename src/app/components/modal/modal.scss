@@ -1,101 +1,65 @@
 .modal-content {
   background: #ffffff;
-  border-radius: 12px;
+  border-radius: 16px 16px 0 0;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
-  max-width: 480px;
-  width: 90vw;
-  max-height: 90vh;
+  width: 100dvw;
+  max-height: 90dvh;
+  height: max-content;
   overflow: hidden;
   animation: modalSlideIn 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  touch-action: pan-y;
+
+  &.closing {
+    animation: modalSlideOut 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+}
+
+.modal-swipe-indicator {
+  width: 36px;
+  height: 4px;
+  background: rgba(67, 76, 94, 0.20);
+  border-radius: 2px;
+  margin: 4px auto 0;
+  opacity: 0.6;
 }
 
 .modal-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 24px 24px 0 24px;
+  justify-content: center;
+  padding: 10px 48px 0 24px;
   border: none;
-}
-
-.modal-title {
-  margin: 0;
-  font-size: 20px;
-  font-weight: 600;
-  color: #1a1a1a;
-  font-family: var(--font-main);
-  line-height: 1.4;
-  letter-spacing: -0.01em;
+  min-height: 24px;
 }
 
 .modal-close {
   background: none;
   border: none;
   cursor: pointer;
-  padding: 8px;
-  border-radius: 8px;
-  color: #666666;
-  transition: all 0.15s ease;
-  width: 32px;
-  height: 32px;
+  color: #434C5E;
+  transition: color 0.2s;
   display: flex;
   align-items: center;
   justify-content: center;
 
+  position: absolute;
+  right: 16px;
+  top: 18px;
+  z-index: 10;
+
   &:hover {
-    background: #f5f5f5;
-    color: #1a1a1a;
+    color: black;
   }
 
-  &:focus {
-    outline: 2px solid var(--color-primary);
-    outline-offset: 2px;
-  }
-
-  svg {
-    width: 16px;
-    height: 16px;
+  &:active {
+    color: black;
   }
 }
 
 .modal-body {
-  padding: 16px 24px 24px 24px;
+  padding: 20px;
   overflow-y: auto;
-  max-height: calc(90vh - 80px);
-  color: #666666;
-  font-size: 14px;
-  line-height: 1.6;
-}
-
-@keyframes modalSlideIn {
-  from {
-    opacity: 0;
-    transform: scale(0.95) translateY(-8px);
-  }
-
-  to {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
-}
-
-@media (max-width: var(--breakpoint-md)) {
-  .modal-content {
-    margin: 16px;
-    width: calc(100vw - 32px);
-    max-height: calc(100vh - 32px);
-    border-radius: 8px;
-  }
-
-  .modal-header {
-    padding: 20px 20px 0 20px;
-  }
-
-  .modal-body {
-    padding: 12px 20px 20px 20px;
-  }
-
-  .modal-title {
-    font-size: 18px;
-  }
+  max-height: calc(90dvh - 38px);
 }
