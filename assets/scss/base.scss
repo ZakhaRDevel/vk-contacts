@@ -68,14 +68,3 @@ a {
   background-clip: text;
   color: transparent;
 }
-
-.cdk-overlay-container {
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-}
-
-.modal-panel {
-  transform: translateZ(0);
-  -webkit-transform: translateZ(0);
-  will-change: transform;
-}
