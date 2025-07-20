@@ -6,11 +6,10 @@ import {
   inject,
   signal,
   OnDestroy,
-  Renderer2,
 } from '@angular/core';
-import { Overlay, OverlayRef, PositionStrategy } from '@angular/cdk/overlay';
-import { ComponentPortal } from '@angular/cdk/portal';
-import { Subscription } from 'rxjs';
+import {Overlay, OverlayRef, PositionStrategy} from '@angular/cdk/overlay';
+import {ComponentPortal} from '@angular/cdk/portal';
+import {Subscription} from 'rxjs';
 
 export interface ModalConfig {
   data?: any;
@@ -22,12 +21,11 @@ export interface ModalConfig {
   disableClose?: boolean;
 }
 
-@Injectable({ providedIn: 'root' })
+@Injectable({providedIn: 'root'})
 export class ModalService implements OnDestroy {
   private overlayRef?: OverlayRef;
   private overlay = inject(Overlay);
   private injector = inject(Injector);
-  private renderer = inject(Renderer2);
   private backdropSubscription?: Subscription;
   isClosing = signal(false);
   private isModalOpen = signal(false);
@@ -67,7 +65,6 @@ export class ModalService implements OnDestroy {
     );
     const componentRef = this.overlayRef.attach(portal);
     this.isModalOpen.set(true);
-    this.renderer.addClass(document.body, 'modal-open');
 
     if (config.hasBackdrop !== false) {
       this.backdropSubscription = this.overlayRef
@@ -86,7 +83,6 @@ export class ModalService implements OnDestroy {
     this.isClosing.set(true);
     this.backdropSubscription?.unsubscribe();
     this.backdropSubscription = undefined;
-    this.renderer.removeClass(document.body, 'modal-open');
     setTimeout(() => {
       this.overlayRef?.dispose();
       this.isClosing.set(false);
@@ -97,7 +93,6 @@ export class ModalService implements OnDestroy {
   ngOnDestroy(): void {
     this.backdropSubscription?.unsubscribe();
     this.overlayRef?.dispose();
-    this.renderer.removeClass(document.body, 'modal-open');
   }
 
   private createPositionStrategy(): PositionStrategy {
@@ -106,7 +101,7 @@ export class ModalService implements OnDestroy {
 
   private createInjector(data: any): Injector {
     return Injector.create({
-      providers: [{ provide: 'MODAL_DATA', useValue: data }],
+      providers: [{provide: 'MODAL_DATA', useValue: data}],
       parent: this.injector,
     });
   }
