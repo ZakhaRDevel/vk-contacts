@@ -4,3 +4,99 @@
 @use 'assets/scss/animations' as *;
 @import 'assets/fonts/TkachenkoSketch4F/stylesheet.css';
 @import 'assets/fonts/EuclidCircularA/stylesheet.css';
+
+// Исправление проблемы с мельканием белого фона на iPhone
+.modal-backdrop {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 9999;
+}
+
+.modal-panel {
+  background: transparent;
+  box-shadow: none;
+  z-index: 10000;
+}
+
+// Исправление для Embla Carousel - предотвращение GPU слоев на iPhone
+.embla {
+  z-index: 1 !important;
+  transform: none !important;
+  will-change: auto !important;
+  -webkit-transform: none !important;
+  -webkit-backface-visibility: hidden !important;
+  backface-visibility: hidden !important;
+}
+
+.embla__container {
+  z-index: 1 !important;
+  transform: none !important;
+  will-change: auto !important;
+  -webkit-transform: none !important;
+  -webkit-backface-visibility: hidden !important;
+  backface-visibility: hidden !important;
+}
+
+.embla__slide {
+  z-index: 1 !important;
+  transform: none !important;
+  will-change: auto !important;
+  -webkit-transform: none !important;
+  -webkit-backface-visibility: hidden !important;
+  backface-visibility: hidden !important;
+}
+
+// Дополнительные правила для элементов внутри слайдера
+.banners {
+  z-index: 1 !important;
+  will-change: auto !important;
+  -webkit-backface-visibility: hidden !important;
+  backface-visibility: hidden !important;
+
+  &__slider {
+    z-index: 1 !important;
+    will-change: auto !important;
+    -webkit-backface-visibility: hidden !important;
+    backface-visibility: hidden !important;
+
+    &__container {
+      z-index: 1 !important;
+      will-change: auto !important;
+      -webkit-backface-visibility: hidden !important;
+      backface-visibility: hidden !important;
+    }
+
+    &__slide {
+      z-index: 1 !important;
+      will-change: auto !important;
+      -webkit-backface-visibility: hidden !important;
+      backface-visibility: hidden !important;
+
+      .banner {
+        z-index: 1 !important;
+        will-change: auto !important;
+        -webkit-backface-visibility: hidden !important;
+        backface-visibility: hidden !important;
+      }
+    }
+  }
+
+  &__actions {
+    z-index: 2 !important;
+  }
+}
+
+// Принудительно скрываем элементы слайдера при открытом модальном окне
+.modal-backdrop~.banners,
+.modal-panel~.banners {
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
+// Альтернативный способ - через body класс
+body.modal-open {
+  .banners {
+    visibility: hidden !important;
+    opacity: 0 !important;
+  }
+}
