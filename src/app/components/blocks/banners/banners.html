@@ -54,28 +54,33 @@
           </div>
         </div>
         <div class="banners__slider__slide">
-          <div class="banner two">
+          <div class="banner two" #bannerTwo>
             <div class="banner__text">
-              <span>на котором</span><br/>
-              <span>не будет</span><br/>
-              <span class="alt"
-              >привязки
+              <span class="text-anim" #textSpan2>на котором</span><br/>
+              <span class="text-anim" #textSpan2>не будет</span><br/>
+              <span class="alt">
+                <span class="text-anim" #textSpan2>привязки</span>
                 <img
+                  #underline2
                   class="line"
                   ngSrc="assets/img/line.svg"
                   alt="line"
                   height="93"
-                  width="61"/></span
+                  width="61"
+                /> </span
               ><br/>
-              <span>к твоему адресу</span><br/>
-              <span
-              >и аккаунтам
+              <span class="text-anim" #textSpan2>к твоему адресу</span><br/>
+              <span>
+                <span class="text-anim" #textSpan2>и аккаунтам</span>
                 <img
+                  class="img-anim"
+                  #bannerImg2
                   ngSrc="assets/img/lock.webp"
                   height="394"
                   width="398"
                   alt="lock"
-                /></span>
+                />
+              </span>
             </div>
           </div>
         </div>
@@ -87,8 +92,7 @@
           variant="secondary"
           [isFull]="true"
         >Заказать сим-карту
-        </app-button
-        >
+        </app-button>
         <div class="banners__dots">
           @for (dot of [0, 1]; track $index) {
             <button
