@@ -116,6 +116,8 @@
       flex: 0 0 80%;
       max-width: 500px;
 
+      will-change: transform;
+
       .card {
         display: flex;
         flex-direction: column;
