@@ -12,7 +12,7 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    transform: rotate(-5deg);
+    transform: rotate(-5deg) scale(3);
     padding: 37px 15px 37px;
     width: 100%;
     flex: 0 0 80%;
@@ -20,6 +20,8 @@
     aspect-ratio: 273 / 326;
     position: relative;
     margin-right: 10px;
+
+    opacity: 0;
 
     .bg {
       position: absolute;

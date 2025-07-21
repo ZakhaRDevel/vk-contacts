@@ -4,14 +4,16 @@ import {
   computed,
   signal,
   viewChild,
+  ElementRef,
 } from '@angular/core';
-import {Container} from '../container/container';
+import { Container } from '../container/container';
 import {
   EmblaCarouselDirective,
   EmblaEventType,
   EmblaOptionsType,
 } from 'embla-carousel-angular';
-import {NgOptimizedImage} from '@angular/common';
+import { NgOptimizedImage } from '@angular/common';
+import { gsap } from 'gsap';
 
 @Component({
   selector: 'app-cards',
@@ -19,17 +21,43 @@ import {NgOptimizedImage} from '@angular/common';
   templateUrl: './cards.html',
   styleUrl: './cards.scss',
 })
-export class Cards {
+export class Cards implements AfterViewInit {
   private emblaRef = viewChild<EmblaCarouselDirective>(EmblaCarouselDirective);
+  mainCard = viewChild<ElementRef>('mainCard');
+
   protected cardsOptions: EmblaOptionsType = {
     align: 'start',
   };
   protected selectedIndex = signal(0);
   totalSlidesArr = computed(() => {
     const length = this.totalSlides();
-    return Array.from({length}, (_, i) => i);
+    return Array.from({ length }, (_, i) => i);
   });
   totalSlides = signal<number>(0);
+
+  ngAfterViewInit() {
+    this.initMainCardAnimation();
+  }
+
+  private initMainCardAnimation() {
+    const mainCardElement = this.mainCard()?.nativeElement;
+    if (!mainCardElement) return;
+
+    gsap.fromTo(
+      mainCardElement,
+      {
+        scale: 3,
+        opacity: 0,
+      },
+      {
+        scale: 1,
+        opacity: 1,
+        duration: 1.5,
+        delay: 2,
+        ease: 'power3.out',
+      }
+    );
+  }
 
   onEmblaChanged(event: EmblaEventType): void {
     const api = this.emblaRef()?.emblaApi;
