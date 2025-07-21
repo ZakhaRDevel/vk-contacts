@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Header} from './components/blocks/header/header';
 import {Footer} from './components/blocks/footer/footer';
 import {Intro} from './components/blocks/intro/intro';

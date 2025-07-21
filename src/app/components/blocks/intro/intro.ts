@@ -12,9 +12,6 @@ import {Button} from '../../ui/button/button';
 import {ModalService} from '../../../services/modal';
 import {SimModal} from '../../modal/sim-modal/sim-modal';
 import {gsap} from 'gsap';
-import {CSSPlugin} from 'gsap/CSSPlugin';
-
-gsap.registerPlugin(CSSPlugin);
 
 @Component({
   selector: 'app-intro',
