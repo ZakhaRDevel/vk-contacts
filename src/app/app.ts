@@ -7,6 +7,7 @@ import {Banners} from './components/blocks/banners/banners';
 import {Container} from './components/blocks/container/container';
 import {NgOptimizedImage} from '@angular/common';
 import {Faq} from './components/blocks/faq/faq';
+import {Steps} from './components/blocks/steps/steps';
 
 @Component({
   selector: 'app-root',
@@ -21,6 +22,7 @@ import {Faq} from './components/blocks/faq/faq';
     Container,
     NgOptimizedImage,
     Faq,
+    Steps,
   ],
 })
 export class App {
