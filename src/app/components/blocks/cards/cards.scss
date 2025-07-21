@@ -12,7 +12,7 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    transform: rotate(-5deg) scale(3);
+    transform: rotate(-5deg);
     padding: 37px 15px 37px;
     width: 100%;
     flex: 0 0 80%;
@@ -22,6 +22,8 @@
     margin-right: 10px;
 
     opacity: 0;
+    will-change: transform, opacity;
+    transform-origin: center center;
 
     .bg {
       position: absolute;
@@ -78,6 +80,7 @@
           line-height: 27.286px;
         }
       }
+
       .vk-heart-icon {
         vertical-align: sub;
       }

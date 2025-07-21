@@ -5,15 +5,16 @@ import {
   signal,
   viewChild,
   ElementRef,
+  OnDestroy,
 } from '@angular/core';
-import { Container } from '../container/container';
+import {Container} from '../container/container';
 import {
   EmblaCarouselDirective,
   EmblaEventType,
   EmblaOptionsType,
 } from 'embla-carousel-angular';
-import { NgOptimizedImage } from '@angular/common';
-import { gsap } from 'gsap';
+import {NgOptimizedImage} from '@angular/common';
+import {gsap} from 'gsap';
 
 @Component({
   selector: 'app-cards',
@@ -21,7 +22,7 @@ import { gsap } from 'gsap';
   templateUrl: './cards.html',
   styleUrl: './cards.scss',
 })
-export class Cards implements AfterViewInit {
+export class Cards implements AfterViewInit, OnDestroy {
   private emblaRef = viewChild<EmblaCarouselDirective>(EmblaCarouselDirective);
   mainCard = viewChild<ElementRef>('mainCard');
 
@@ -31,7 +32,7 @@ export class Cards implements AfterViewInit {
   protected selectedIndex = signal(0);
   totalSlidesArr = computed(() => {
     const length = this.totalSlides();
-    return Array.from({ length }, (_, i) => i);
+    return Array.from({length}, (_, i) => i);
   });
   totalSlides = signal<number>(0);
 
@@ -39,24 +40,30 @@ export class Cards implements AfterViewInit {
     this.initMainCardAnimation();
   }
 
+  ngOnDestroy() {
+    const mainCardElement = this.mainCard()?.nativeElement;
+    if (mainCardElement) {
+      gsap.killTweensOf(mainCardElement);
+    }
+  }
+
   private initMainCardAnimation() {
     const mainCardElement = this.mainCard()?.nativeElement;
     if (!mainCardElement) return;
 
-    gsap.fromTo(
-      mainCardElement,
-      {
-        scale: 3,
-        opacity: 0,
-      },
-      {
-        scale: 1,
-        opacity: 1,
-        duration: 1.5,
-        delay: 2,
-        ease: 'power3.out',
-      }
-    );
+    gsap.set(mainCardElement, {
+      scale: 1.3,
+      opacity: 0,
+    });
+
+    gsap.to(mainCardElement, {
+      scale: 1,
+      opacity: 1,
+      duration: 1,
+      delay: 2,
+      ease: 'power3.out',
+      id: 'main-card-animation',
+    });
   }
 
   onEmblaChanged(event: EmblaEventType): void {

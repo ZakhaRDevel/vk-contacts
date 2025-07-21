@@ -6,6 +6,7 @@ import {
   AfterViewInit,
   ElementRef,
   viewChildren,
+  OnDestroy,
 } from '@angular/core';
 import {
   EmblaCarouselDirective,
@@ -24,7 +25,7 @@ import { gsap } from 'gsap';
   templateUrl: './banners.html',
   styleUrl: './banners.scss',
 })
-export class Banners implements AfterViewInit {
+export class Banners implements AfterViewInit, OnDestroy {
   private emblaRef = viewChild<EmblaCarouselDirective>(EmblaCarouselDirective);
 
   textSpans = viewChildren<ElementRef>('textSpan');
@@ -48,6 +49,11 @@ export class Banners implements AfterViewInit {
     this.initAnimation();
   }
 
+  ngOnDestroy() {
+    gsap.killTweensOf(this.bannerOne()?.nativeElement);
+    gsap.killTweensOf(this.bannerTwo()?.nativeElement);
+  }
+
   private initAnimation() {
     const bannerOne = this.bannerOne()?.nativeElement;
     if (!bannerOne) return;
@@ -69,7 +75,8 @@ export class Banners implements AfterViewInit {
         trigger: bannerOne,
         start: 'center 80%',
         end: 'bottom 20%',
-        toggleActions: 'play none none reverse',
+        toggleActions: 'play none none none',
+        id: 'banner-one-animation',
       },
     });
 
@@ -125,6 +132,10 @@ export class Banners implements AfterViewInit {
 
     const tl = gsap.timeline({
       defaults: { ease: 'power3.out' },
+      scrollTrigger: {
+        trigger: bannerTwo,
+        id: 'banner-two-animation',
+      },
     });
 
     tl.set(textOne, { y: -10, clipPath: 'inset(0 0 100% 0)' })
