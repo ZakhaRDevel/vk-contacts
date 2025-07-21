@@ -2,35 +2,39 @@
   <app-container>
     <div class="intro__inner">
       <h1 class="intro__title">
-        <div class="gradient-text">знакомства</div>
+        <div class="gradient-text text-anim" #text>знакомства</div>
         <div class="intro__title__images">
-          <span>на</span>
+          <span class="text-anim" #text>на</span>
           <img
-            class="heart"
+            class="heart anim-img"
+            #img
             ngSrc="assets/img/heart.webp"
             alt="heart"
             height="197"
             width="201"
           />
           <img
-            class="sim"
+            class="sim anim-img"
+            #img
             ngSrc="assets/img/sim.webp"
             alt="sim"
             height="197"
             width="276"
           />
           <img
-            class="cat"
+            class="cat anim-img"
+            #img
             ngSrc="assets/img/cat.webp"
             alt="cat"
             height="194"
             width="198"
           />
         </div>
-        <div><span>максимум</span></div>
+        <div class="text-anim" #text><span>максимум</span></div>
       </h1>
-
-      <app-button (btnClick)="onOpenModal()">Заказать сим-карту</app-button>
+      <div class="btn" #btn>
+        <app-button (btnClick)="onOpenModal()">Заказать сим-карту</app-button>
+      </div>
     </div>
   </app-container>
 </div>

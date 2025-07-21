@@ -14,9 +14,21 @@
 
     text-transform: uppercase;
 
+    .text-anim, {
+      transform: translateY(-10px);
+      clip-path: inset(0 0 100% 0);
+      will-change: transform, opacity, clip-path;
+    }
+
     &__images {
       position: relative;
       padding-right: 160px;
+
+      .anim-img {
+        will-change: transform;
+        opacity: 0;
+        scale: 0;
+      }
 
       .heart {
         max-width: 48px;
@@ -54,5 +66,10 @@
         transform: rotate(15deg);
       }
     }
+  }
+
+  .btn {
+    opacity: 0;
+    will-change: opacity;
   }
 }
