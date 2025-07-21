@@ -36,7 +36,7 @@
   </app-container>
 </div>
 
-<div class="cards">
+<div class="cards" #cardsContainer>
   <app-container>
     <div class="cards__inner">
       <h3 class="cards__title">Что ты получишь с сим-картой</h3>
@@ -49,7 +49,7 @@
         (emblaChange)="onEmblaChanged($event)"
       >
         <div class="cards__slider__container">
-          <div class="cards__slider__slide">
+          <div class="cards__slider__slide" #cardSlide>
             <div class="card">
               <div class="card__text">
                 Абонемент<br />
@@ -64,7 +64,7 @@
               />
             </div>
           </div>
-          <div class="cards__slider__slide">
+          <div class="cards__slider__slide" #cardSlide>
             <div class="card">
               <div class="card__text">
                 В подарок Premium в VK Знакомствах на 3 месяца
@@ -77,7 +77,7 @@
               />
             </div>
           </div>
-          <div class="cards__slider__slide">
+          <div class="cards__slider__slide" #cardSlide>
             <div class="card">
               <div class="card__text">Максимум для общения каждый месяц</div>
               <img
@@ -88,7 +88,7 @@
               />
             </div>
           </div>
-          <div class="cards__slider__slide">
+          <div class="cards__slider__slide" #cardSlide>
             <div class="card">
               <div class="card__text">
                 Безлимиты, чтобы не тратить интернет из тарифа
