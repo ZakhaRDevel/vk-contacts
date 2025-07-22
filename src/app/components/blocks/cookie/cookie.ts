@@ -1,4 +1,11 @@
-import { Component, signal, computed, inject } from '@angular/core';
+import {
+  Component,
+  signal,
+  computed,
+  inject,
+  input,
+  HostBinding,
+} from '@angular/core';
 import { IsBrowser } from '../../../services/is-browser';
 
 const COOKIE_KEY = 'cookie-consent-expire';
@@ -14,6 +21,7 @@ export class Cookie {
   private readonly isBrowser = inject(IsBrowser);
   private readonly expireDate = signal<Date | null>(null);
 
+  withOffset = input(false);
   readonly isShow = computed(() => {
     if (!this.isBrowser.isBrowser) return false;
     const expire = this.expireDate();
@@ -34,5 +42,11 @@ export class Cookie {
     expire.setDate(expire.getDate() + EXPIRE_DAYS);
     localStorage.setItem(COOKIE_KEY, JSON.stringify(expire.toISOString()));
     this.expireDate.set(expire);
+  }
+
+  resetCookie(): void {
+    if (!this.isBrowser.isBrowser) return;
+    localStorage.removeItem(COOKIE_KEY);
+    this.expireDate.set(null);
   }
 }

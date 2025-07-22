@@ -6,10 +6,12 @@ import {
   inject,
   signal,
   OnDestroy,
+  RendererFactory2,
+  Renderer2,
 } from '@angular/core';
-import {Overlay, OverlayRef, PositionStrategy} from '@angular/cdk/overlay';
-import {ComponentPortal} from '@angular/cdk/portal';
-import {Subscription} from 'rxjs';
+import { Overlay, OverlayRef, PositionStrategy } from '@angular/cdk/overlay';
+import { ComponentPortal } from '@angular/cdk/portal';
+import { Subscription } from 'rxjs';
 
 export interface ModalConfig {
   data?: any;
@@ -21,7 +23,7 @@ export interface ModalConfig {
   disableClose?: boolean;
 }
 
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: 'root' })
 export class ModalService implements OnDestroy {
   private overlayRef?: OverlayRef;
   private overlay = inject(Overlay);
@@ -29,16 +31,24 @@ export class ModalService implements OnDestroy {
   private backdropSubscription?: Subscription;
   isClosing = signal(false);
   private isModalOpen = signal(false);
+  private renderer: Renderer2 = inject(RendererFactory2).createRenderer(
+    null,
+    null
+  );
+  private skipUnlockScroll = false;
 
   open<T>(component: Type<T>, config: ModalConfig = {}): ComponentRef<T> {
     if (this.isModalOpen()) {
+      this.skipUnlockScroll = true;
       this.close();
       setTimeout(() => {
         this.openModal(component, config);
+        this.skipUnlockScroll = false;
       }, 300);
       return {} as ComponentRef<T>;
     }
 
+    this.lockScroll();
     return this.openModal(component, config);
   }
 
@@ -87,12 +97,16 @@ export class ModalService implements OnDestroy {
       this.overlayRef?.dispose();
       this.isClosing.set(false);
       this.isModalOpen.set(false);
+      if (!this.skipUnlockScroll) {
+        this.unlockScroll();
+      }
     }, 300);
   }
 
   ngOnDestroy(): void {
     this.backdropSubscription?.unsubscribe();
     this.overlayRef?.dispose();
+    this.unlockScroll();
   }
 
   private createPositionStrategy(): PositionStrategy {
@@ -101,8 +115,21 @@ export class ModalService implements OnDestroy {
 
   private createInjector(data: any): Injector {
     return Injector.create({
-      providers: [{provide: 'MODAL_DATA', useValue: data}],
+      providers: [{ provide: 'MODAL_DATA', useValue: data }],
       parent: this.injector,
     });
+  }
+
+  // --- Angular way: блокировка прокрутки через Renderer2 ---
+  private lockScroll(): void {
+    if (typeof document !== 'undefined') {
+      this.renderer.setStyle(document.body, 'overflow', 'hidden');
+    }
+  }
+
+  private unlockScroll(): void {
+    if (typeof document !== 'undefined') {
+      this.renderer.removeStyle(document.body, 'overflow');
+    }
   }
 }

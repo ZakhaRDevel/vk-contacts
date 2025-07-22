@@ -1,11 +1,13 @@
-<app-header/>
+<app-header />
 <main class="main">
-  <app-intro/>
-  <app-cards/>
-  <app-banners/>
-  <app-steps #steps/>
-  <app-faq/>
-  <app-fixed-btn [visible]="visible()"/>
-  <app-cookie/>
+  <app-intro />
+  <app-cards />
+  <app-banners />
+  <app-steps #steps />
+  <app-faq />
+  <div class="bottom-bar">
+    <app-cookie [withOffset]="visible()" />
+    <app-fixed-btn [visible]="visible()" />
+  </div>
 </main>
-<app-footer/>
+<app-footer />
