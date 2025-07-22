@@ -85,7 +85,7 @@ export class Banners implements AfterViewInit, OnDestroy {
   }
 
   private animateUnderline2() {
-    if (this.IsBrowser.isBrowser || this.secondBannerAnimated) return;
+    if (!this.IsBrowser.isBrowser || this.secondBannerAnimated) return;
     const svg = this.underline2()?.nativeElement as SVGSVGElement;
     if (!svg) return;
     const clipRect = this.clipRect2()?.nativeElement;
