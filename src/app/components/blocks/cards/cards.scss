@@ -15,15 +15,15 @@
     transform: rotate(-5deg);
     padding: 37px 15px 37px;
     width: 100%;
-    flex: 0 0 80%;
+    flex: 0 0 90%;
     max-width: 500px;
-    aspect-ratio: 273 / 326;
+    aspect-ratio: 322 / 351;
     position: relative;
     margin-right: 10px;
 
-    opacity: 0;
-    will-change: transform, opacity;
-    transform-origin: center center;
+    //opacity: 0;
+    //will-change: transform, opacity;
+    //transform-origin: center center;
 
     .bg {
       position: absolute;
@@ -105,10 +105,13 @@
 
   &__slider {
     overflow: hidden;
+    padding: 0 16px;
+
 
     &__container {
       display: flex;
       gap: 10px;
+
     }
 
     &__slide {
@@ -116,7 +119,7 @@
       flex: 0 0 80%;
       max-width: 500px;
 
-      will-change: transform;
+      //will-change: transform;
 
       .card {
         display: flex;

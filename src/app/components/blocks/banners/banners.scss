@@ -25,15 +25,15 @@
         border-radius: 16px;
 
         .text-anim {
-          transform: translateY(-10px);
-          clip-path: inset(0 0 100% 0);
-          will-change: transform, clip-path;
+          //transform: translateY(-10px);
+          //clip-path: inset(0 0 100% 0);
+          //will-change: transform, clip-path;
         }
 
         .img-anim {
-          will-change: transform;
-          opacity: 0;
-          scale: 0;
+          //will-change: transform;
+          //opacity: 0;
+          //scale: 0;
         }
 
         &__text {
@@ -71,7 +71,7 @@
 
           .line {
             width: 100%;
-            transform: scaleX(0);
+            //transform: scaleX(0);
             position: absolute;
             left: 15px;
             bottom: -15px;
@@ -89,11 +89,11 @@
 
           .line {
             width: 100%;
-            transform: scaleX(0);
+            transform: rotate(3deg);
 
             position: absolute;
             left: 0;
-            bottom: -22px;
+            bottom: -11px;
             z-index: 1;
           }
         }

@@ -1,13 +1,21 @@
-import {Component, OnInit} from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  inject,
+  OnDestroy,
+  signal,
+  viewChild
+} from '@angular/core';
 import {Header} from './components/blocks/header/header';
 import {Footer} from './components/blocks/footer/footer';
 import {Intro} from './components/blocks/intro/intro';
 import {Cards} from './components/blocks/cards/cards';
 import {Banners} from './components/blocks/banners/banners';
-import {Container} from './components/blocks/container/container';
-import {NgOptimizedImage} from '@angular/common';
 import {Faq} from './components/blocks/faq/faq';
 import {Steps} from './components/blocks/steps/steps';
+import {FixedBtn} from './components/blocks/fixed-btn/fixed-btn';
+import {IsBrowser} from './services/is-browser';
 
 @Component({
   selector: 'app-root',
@@ -19,12 +27,36 @@ import {Steps} from './components/blocks/steps/steps';
     Intro,
     Cards,
     Banners,
-    Container,
-    NgOptimizedImage,
     Faq,
     Steps,
+    FixedBtn,
   ],
 })
-export class App {
+export class App implements AfterViewInit, OnDestroy {
+  private IsBrowser = inject(IsBrowser)
+  private observer?: IntersectionObserver;
 
+  visible = signal(false)
+  steps = viewChild(
+    'steps', { read: ElementRef });
+
+  ngAfterViewInit() {
+    if (this.IsBrowser.isBrowser) return;
+    const steps = this.steps()?.nativeElement
+    if (!steps) return;
+    this.observer = new IntersectionObserver(
+      ([entry]) => {
+        this.visible.set(entry.isIntersecting);
+      },
+      {
+        root: null,
+        threshold: 0.1,
+      }
+    );
+    this.observer.observe(steps);
+  }
+
+  ngOnDestroy() {
+    this.observer?.disconnect();
+  }
 }

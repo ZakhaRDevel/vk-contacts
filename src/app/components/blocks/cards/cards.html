@@ -3,7 +3,7 @@
     <div class="card-main__inner">
       <div class="card-main__card" #mainCard>
         <div class="text">
-          Сим-карта <br />
+          Сим-карта <br/>
           для знакомств
         </div>
         <div class="text alt">
@@ -11,7 +11,7 @@
           <span class="medium">за 3 мес</span>
         </div>
         <div class="text">
-          + в подарок Premium <br />
+          + в подарок Premium <br/>
           <span class="vk-gift">
             в
             <img
@@ -28,8 +28,9 @@
           class="bg"
           ngSrc="assets/img/main_card.webp"
           alt="main_card"
-          height="653"
-          width="547"
+          height="703"
+          width="644"
+          priority
         />
       </div>
     </div>
@@ -37,74 +38,73 @@
 </div>
 
 <div class="cards" #cardsContainer>
-  <app-container>
-    <div class="cards__inner">
-      <h3 class="cards__title">Что ты получишь с сим-картой</h3>
+  <div class="cards__inner">
+    <h3 class="cards__title">Что ты получишь с сим-картой</h3>
 
-      <div
-        class="cards__slider"
-        emblaCarousel
-        [options]="cardsOptions"
-        [subscribeToEvents]="['init', 'select']"
-        (emblaChange)="onEmblaChanged($event)"
-      >
-        <div class="cards__slider__container">
-          <div class="cards__slider__slide" #cardSlide>
-            <div class="card">
-              <div class="card__text">
-                Абонемент<br />
-                на Максимум <br />
-                3 месяца связи
-              </div>
-              <img
-                ngSrc="assets/img/card_1.webp"
-                alt="card"
-                height="652"
-                width="546"
-              />
+    <div
+      class="cards__slider"
+      emblaCarousel
+      [options]="cardsOptions"
+      [subscribeToEvents]="['init', 'select']"
+      (emblaChange)="onEmblaChanged($event)"
+    >
+      <div class="cards__slider__container">
+        <div class="cards__slider__slide" #cardSlide>
+          <div class="card">
+            <div class="card__text">
+              3 месяца связи <br/>
+              с Абонементом<br/>
+              на Максимум
             </div>
-          </div>
-          <div class="cards__slider__slide" #cardSlide>
-            <div class="card">
-              <div class="card__text">
-                В подарок Premium в VK Знакомствах на 3 месяца
-              </div>
-              <img
-                ngSrc="assets/img/card_2.webp"
-                alt="card"
-                height="652"
-                width="546"
-              />
-            </div>
-          </div>
-          <div class="cards__slider__slide" #cardSlide>
-            <div class="card">
-              <div class="card__text">Максимум для общения каждый месяц</div>
-              <img
-                ngSrc="assets/img/card_3.webp"
-                alt="card"
-                height="650"
-                width="546"
-              />
-            </div>
-          </div>
-          <div class="cards__slider__slide" #cardSlide>
-            <div class="card">
-              <div class="card__text">
-                Безлимиты, чтобы не тратить интернет из тарифа
-              </div>
-              <img
-                ngSrc="assets/img/card_4.webp"
-                alt="card"
-                height="650"
-                width="546"
-              />
-            </div>
+            <img
+              ngSrc="assets/img/card_1.webp"
+              alt="card"
+              height="652"
+              width="546"
+            />
           </div>
         </div>
+        <div class="cards__slider__slide" #cardSlide>
+          <div class="card">
+            <div class="card__text">
+              В подарок Premium в VK Знакомствах на 3 месяца
+            </div>
+            <img
+              ngSrc="assets/img/card_2.webp"
+              alt="card"
+              height="652"
+              width="546"
+            />
+          </div>
+        </div>
+        <div class="cards__slider__slide" #cardSlide>
+          <div class="card">
+            <div class="card__text">Максимум для общения каждый месяц</div>
+            <img
+              ngSrc="assets/img/card_3.webp"
+              alt="card"
+              height="650"
+              width="546"
+            />
+          </div>
+        </div>
+        <div class="cards__slider__slide" #cardSlide>
+          <div class="card">
+            <div class="card__text">
+              Безлимиты, чтобы не тратить интернет из тарифа
+            </div>
+            <img
+              ngSrc="assets/img/card_4.webp"
+              alt="card"
+              height="650"
+              width="546"
+            />
+          </div>
+        </div>
+      </div>
 
-        <div class="cards__dots">
-          @for (dot of totalSlidesArr(); track dot) {
+      <div class="cards__dots">
+        @for (dot of totalSlidesArr(); track dot) {
           <button
             class="cards__dot"
             [class.active]="selectedIndex() === dot"
@@ -112,9 +112,8 @@
             type="button"
             [attr.aria-label]="'Перейти к слайду ' + (dot + 1)"
           ></button>
-          }
-        </div>
+        }
       </div>
     </div>
-  </app-container>
+  </div>
 </div>

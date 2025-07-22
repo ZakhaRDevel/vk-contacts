@@ -15,9 +15,9 @@
     text-transform: uppercase;
 
     .text-anim, {
-      transform: translateY(-10px);
-      clip-path: inset(0 0 100% 0);
-      will-change: transform, opacity, clip-path;
+      //transform: translateY(-10px);
+      //clip-path: inset(0 0 100% 0);
+      //will-change: transform, opacity, clip-path;
     }
 
     &__images {
@@ -25,9 +25,9 @@
       padding-right: 160px;
 
       .anim-img {
-        will-change: transform;
-        opacity: 0;
-        scale: 0;
+        //will-change: transform;
+        //opacity: 0;
+        //scale: 0;
       }
 
       .heart {
@@ -69,7 +69,7 @@
   }
 
   .btn {
-    opacity: 0;
-    will-change: opacity;
+    //opacity: 0;
+    //will-change: opacity;
   }
 }

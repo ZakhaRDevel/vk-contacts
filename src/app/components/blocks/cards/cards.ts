@@ -42,20 +42,20 @@ export class Cards implements AfterViewInit, OnDestroy {
   totalSlides = signal<number>(0);
 
   ngAfterViewInit() {
-    this.initMainCardAnimation();
-    this.initStackScrollTrigger();
+    // this.initMainCardAnimation();
+    // this.initStackScrollTrigger();
   }
 
   ngOnDestroy() {
-    const mainCardElement = this.mainCard()?.nativeElement;
-    if (mainCardElement) {
-      gsap.killTweensOf(mainCardElement);
-    }
-    const slides = this.cardSlides();
-    slides.forEach((ref) => {
-      gsap.killTweensOf(ref.nativeElement);
-    });
-    ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    // const mainCardElement = this.mainCard()?.nativeElement;
+    // if (mainCardElement) {
+    //   gsap.killTweensOf(mainCardElement);
+    // }
+    // const slides = this.cardSlides();
+    // slides.forEach((ref) => {
+    //   gsap.killTweensOf(ref.nativeElement);
+    // });
+    // ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
   }
 
   private initMainCardAnimation() {

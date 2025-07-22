@@ -34,6 +34,20 @@
       bottom: -62px;
       z-index: 2;
 
+      overflow: hidden;
+
+      svg,
+      img {
+        display: block;
+        clip-path: inset(0 0 100% 0);
+        transition: clip-path 0.5s cubic-bezier(.4, 0, .2, 1);
+      }
+
+      &.visible svg,
+      &.visible img {
+        clip-path: inset(0 0 0 0);
+      }
+
       &.left {
         right: unset;
         left: 0;
