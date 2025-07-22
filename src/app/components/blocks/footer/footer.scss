@@ -1,20 +1,71 @@
 .footer {
-  padding: 32px 0 12px;
+  padding: 32px 0 28px;
 
   &__inner {
     display: flex;
     flex-direction: column;
-    gap: 24px;
-  }
+    gap: 8px;
 
-  &__link {
+    font-size: 12px;
+    line-height: 18px;
     color: #758494;
-    transition: color .2s;
+    font-weight: 400;
 
-    &:hover {
-      color: #3C78D8FF;
+    .sb {
+      font-weight: 600;
     }
   }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+
+    .copy {
+
+    }
+
+    .social {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      &__link {
+        color: #434C5E;
+        transition: color .2s;
+
+        &.vk {
+          @media (hover: hover) {
+            &:hover {
+              color: #3C78D8FF;
+            }
+          }
+
+          &:active {
+            &:not(:disabled) {
+              color: #3C78D8FF;
+            }
+          }
+        }
+
+        &.tg {
+          @media (hover: hover) {
+            &:hover {
+              color: rgb(42, 171, 238);
+            }
+          }
+
+          &:active {
+            &:not(:disabled) {
+              color: rgb(42, 171, 238);
+            }
+          }
+        }
+      }
+    }
+  }
+
 
   &__info {
     display: flex;
