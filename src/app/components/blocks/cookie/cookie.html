@@ -1,0 +1,9 @@
+@if (isShow()) {
+  <div class="cookie">
+    <h4 class="cookie__title">Мы используем cookie</h4>
+    <span class="cookie__text">
+      согласно <a href="https://static.yota.ru/upload/public/doc/politika_konfiden_Yota.pdf" target="_blank">политике конфиденциальности</a>. Управлять cookie можно в настройках браузера
+    </span>
+    <button class="cookie__btn" (click)="onAccept()">Понятно</button>
+  </div>
+}

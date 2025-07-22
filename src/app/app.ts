@@ -16,6 +16,7 @@ import {Faq} from './components/blocks/faq/faq';
 import {Steps} from './components/blocks/steps/steps';
 import {FixedBtn} from './components/blocks/fixed-btn/fixed-btn';
 import {IsBrowser} from './services/is-browser';
+import {Cookie} from './components/blocks/cookie/cookie';
 
 @Component({
   selector: 'app-root',
@@ -30,6 +31,7 @@ import {IsBrowser} from './services/is-browser';
     Faq,
     Steps,
     FixedBtn,
+    Cookie,
   ],
 })
 export class App implements AfterViewInit, OnDestroy {
@@ -41,7 +43,7 @@ export class App implements AfterViewInit, OnDestroy {
     'steps', { read: ElementRef });
 
   ngAfterViewInit() {
-    if (this.IsBrowser.isBrowser) return;
+    if (!this.IsBrowser.isBrowser) return;
     const steps = this.steps()?.nativeElement
     if (!steps) return;
     this.observer = new IntersectionObserver(

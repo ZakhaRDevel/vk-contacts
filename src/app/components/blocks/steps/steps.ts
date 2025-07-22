@@ -27,7 +27,7 @@ export class Steps implements AfterViewInit {
   }
 
   private initAnimation() {
-    if (this.IsBrowser.isBrowser) return;
+    if (!this.IsBrowser.isBrowser) return;
     const stepElements = this.stepItems();
     if (stepElements.length === 0) return;
 
@@ -50,7 +50,7 @@ export class Steps implements AfterViewInit {
   }
 
   private initArrowAnimation() {
-    if (this.IsBrowser.isBrowser) return;
+    if (!this.IsBrowser.isBrowser) return;
     const arrows = this.arrows();
     arrows.forEach((ref) => {
       const arrowEl = ref.nativeElement;

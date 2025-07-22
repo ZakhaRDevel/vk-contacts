@@ -52,7 +52,7 @@ export class Banners implements AfterViewInit, OnDestroy {
   modal = inject(ModalService);
 
   private animateUnderline() {
-    if (this.IsBrowser.isBrowser) return;
+    if (!this.IsBrowser.isBrowser) return;
     const svg = this.underline()?.nativeElement as SVGSVGElement;
     if (!svg) return;
     const clipRect = this.clipRect()?.nativeElement;

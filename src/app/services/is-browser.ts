@@ -6,5 +6,5 @@ import {isPlatformBrowser} from '@angular/common';
 })
 export class IsBrowser {
   private platformId = inject(PLATFORM_ID);
-  isBrowser = !isPlatformBrowser(this.platformId)
+  isBrowser = isPlatformBrowser(this.platformId)
 }
