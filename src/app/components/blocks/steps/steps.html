@@ -26,13 +26,19 @@
         </div>
       </div>
       <div class="steps__list-item">
-        <img
-          #stepItem
-          ngSrc="assets/img/step_2.webp"
-          alt="step"
-          height="698"
-          width="602"
-        />
+        <div class="card">
+          <img
+            #stepItem
+            ngSrc="assets/img/step_2.webp"
+            alt="step"
+            height="698"
+            width="601"
+          />
+          <div class="btn">
+            <app-button variant="secondary" [isFull]="false">Заполнить форму</app-button>
+          </div>
+        </div>
+
         <div class="arrow left" #arrow>
           <img
             ngSrc="assets/img/arrow.svg"

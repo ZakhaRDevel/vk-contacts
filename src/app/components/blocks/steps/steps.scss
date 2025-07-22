@@ -21,6 +21,24 @@
     aspect-ratio: 273 / 326;
     max-width: 500px;
 
+    .card {
+      position: relative;
+
+      .btn {
+        display: flex;
+        justify-content: center;
+
+        transform: rotate(5deg);
+        position: absolute;
+        left: 0;
+        right: 27px;
+        bottom: 30px;
+        margin: auto;
+        z-index: 2;
+      }
+
+    }
+
     img {
       position: relative;
       z-index: 1;

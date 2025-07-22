@@ -9,10 +9,11 @@ import {NgOptimizedImage} from '@angular/common';
 import {gsap} from 'gsap';
 import {ScrollTrigger} from 'gsap/ScrollTrigger';
 import {IsBrowser} from '../../../services/is-browser';
+import {Button} from '../../ui/button/button';
 
 @Component({
   selector: 'app-steps',
-  imports: [Container, NgOptimizedImage],
+  imports: [Container, NgOptimizedImage, Button],
   templateUrl: './steps.html',
   styleUrl: './steps.scss',
 })
