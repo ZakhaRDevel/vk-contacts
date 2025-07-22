@@ -8,11 +8,7 @@
   }
 
   &__card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    transform: rotate(-5deg);
+
     padding: 37px 15px 37px;
     width: 100%;
     flex: 0 0 90%;
@@ -24,6 +20,17 @@
     //opacity: 0;
     //will-change: transform, opacity;
     //transform-origin: center center;
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      transform: rotate(-5deg);
+      position: relative;
+      z-index: 2;
+      height: 100%;
+    }
 
     .bg {
       position: absolute;

@@ -12,5 +12,6 @@ import {NgClass} from '@angular/common';
 export class Button {
   btnClick = output()
   variant = input<'primary' | 'secondary'>('primary')
+  size = input<'medium' | 'large'>('medium')
   isFull = input<boolean>(true)
 }
