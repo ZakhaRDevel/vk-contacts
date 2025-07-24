@@ -26,6 +26,7 @@ import {IsBrowser} from '../../../services/is-browser';
   imports: [EmblaCarouselDirective, NgOptimizedImage, Button],
   templateUrl: './banners.html',
   styleUrl: './banners.scss',
+  standalone: true
 })
 export class Banners implements AfterViewInit, OnDestroy {
   private emblaRef = viewChild<EmblaCarouselDirective>(EmblaCarouselDirective);

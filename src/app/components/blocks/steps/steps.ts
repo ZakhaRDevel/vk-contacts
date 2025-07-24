@@ -16,6 +16,7 @@ import {Button} from '../../ui/button/button';
   imports: [Container, NgOptimizedImage, Button],
   templateUrl: './steps.html',
   styleUrl: './steps.scss',
+  standalone: true
 })
 export class Steps implements AfterViewInit {
   stepItems = viewChildren<ElementRef>('stepItem');

@@ -7,6 +7,7 @@ import {Modal} from '../modal';
     Modal
   ],
   templateUrl: './plastic-sim-modal.html',
+  standalone: true,
   styleUrl: './plastic-sim-modal.scss'
 })
 export class PlasticSimModal {

@@ -13,12 +13,14 @@ import {Button} from '../../ui/button/button';
 import {ModalService} from '../../../services/modal';
 import {SimModal} from '../../modal/sim-modal/sim-modal';
 import {gsap} from 'gsap';
+import {MetrikaService} from '../../../services/metrika';
 
 @Component({
   selector: 'app-intro',
   imports: [Container, NgOptimizedImage, Button],
   templateUrl: './intro.html',
   styleUrl: './intro.scss',
+  standalone: true
 })
 export class Intro implements AfterViewInit, OnDestroy {
   images = viewChildren<ElementRef>('img');
@@ -26,6 +28,7 @@ export class Intro implements AfterViewInit, OnDestroy {
   btn = viewChild<ElementRef>('btn');
   modal = inject(ModalService);
   private elementRef = inject(ElementRef);
+  private readonly metrika = inject(MetrikaService);
 
   ngAfterViewInit() {
     // setTimeout(() => {
@@ -90,6 +93,13 @@ export class Intro implements AfterViewInit, OnDestroy {
   }
 
   onOpenModal() {
+    this.metrika.push({
+      event: 'addEvents_makeEcommerce',
+      event_id: 'order-sim-btn',
+      event_cat: 'orderSim',
+      event_name: 'clickProductList',
+      event_param: 'ЗАКАЗАТЬ SIM-КАРТУ',
+    });
     this.modal.open(SimModal, {data: {title: 'Выбери тип сим-карты'}});
   }
 }

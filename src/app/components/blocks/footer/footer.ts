@@ -11,6 +11,7 @@ import {TelegramIcon} from '../../svg/telegram-icon/telegram-icon';
     TelegramIcon
   ],
   templateUrl: './footer.html',
+  standalone: true,
   styleUrl: './footer.scss'
 })
 export class Footer {

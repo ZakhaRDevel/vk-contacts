@@ -7,6 +7,7 @@ import {NgClass} from '@angular/common';
     NgClass
   ],
   templateUrl: './button.html',
+  standalone: true,
   styleUrl: './button.scss'
 })
 export class Button {

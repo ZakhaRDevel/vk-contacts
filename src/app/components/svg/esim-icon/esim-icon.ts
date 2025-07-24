@@ -4,6 +4,7 @@ import {Component, input} from '@angular/core';
   selector: 'app-esim-icon',
   imports: [],
   templateUrl: './esim-icon.svg',
+  standalone: true
 })
 export class EsimIcon {
   width = input<number>(26);

@@ -9,6 +9,7 @@ import {Container} from '../container/container';
     Container
   ],
   templateUrl: './header.html',
+  standalone: true,
   styleUrl: './header.scss'
 })
 export class Header {

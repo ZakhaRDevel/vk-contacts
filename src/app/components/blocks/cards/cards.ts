@@ -24,6 +24,7 @@ gsap.registerPlugin(ScrollTrigger);
   imports: [Container, EmblaCarouselDirective, NgOptimizedImage],
   templateUrl: './cards.html',
   styleUrl: './cards.scss',
+  standalone: true
 })
 export class Cards implements AfterViewInit, OnDestroy {
   private emblaRef = viewChild<EmblaCarouselDirective>(EmblaCarouselDirective);

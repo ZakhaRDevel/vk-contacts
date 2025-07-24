@@ -16,6 +16,7 @@ import {ModalService} from '../../../services/modal';
   imports: [Button],
   templateUrl: './fixed-btn.html',
   styleUrl: './fixed-btn.scss',
+  standalone: true
 })
 export class FixedBtn {
   visible = input(false);
