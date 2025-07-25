@@ -9,9 +9,9 @@ import {
   RendererFactory2,
   Renderer2,
 } from '@angular/core';
-import { Overlay, OverlayRef, PositionStrategy } from '@angular/cdk/overlay';
-import { ComponentPortal } from '@angular/cdk/portal';
-import { Subscription } from 'rxjs';
+import {Overlay, OverlayRef, PositionStrategy} from '@angular/cdk/overlay';
+import {ComponentPortal} from '@angular/cdk/portal';
+import {Subscription} from 'rxjs';
 
 export interface ModalConfig {
   data?: any;
@@ -23,19 +23,19 @@ export interface ModalConfig {
   disableClose?: boolean;
 }
 
-@Injectable({ providedIn: 'root' })
+@Injectable({providedIn: 'root'})
 export class ModalService implements OnDestroy {
   private overlayRef?: OverlayRef;
   private overlay = inject(Overlay);
   private injector = inject(Injector);
   private backdropSubscription?: Subscription;
   isClosing = signal(false);
-  private isModalOpen = signal(false);
+  isModalOpen = signal(false);
   private renderer: Renderer2 = inject(RendererFactory2).createRenderer(
     null,
     null
   );
-  private skipUnlockScroll = false;
+  skipUnlockScroll = false;
 
   open<T>(component: Type<T>, config: ModalConfig = {}): ComponentRef<T> {
     if (this.isModalOpen()) {
@@ -115,19 +115,19 @@ export class ModalService implements OnDestroy {
 
   private createInjector(data: any): Injector {
     return Injector.create({
-      providers: [{ provide: 'MODAL_DATA', useValue: data }],
+      providers: [{provide: 'MODAL_DATA', useValue: data}],
       parent: this.injector,
     });
   }
 
   // --- Angular way: блокировка прокрутки через Renderer2 ---
-  private lockScroll(): void {
+  public lockScroll(): void {
     if (typeof document !== 'undefined') {
       this.renderer.setStyle(document.body, 'overflow', 'hidden');
     }
   }
 
-  private unlockScroll(): void {
+  public unlockScroll(): void {
     if (typeof document !== 'undefined') {
       this.renderer.removeStyle(document.body, 'overflow');
     }

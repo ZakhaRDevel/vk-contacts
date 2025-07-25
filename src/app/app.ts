@@ -33,6 +33,7 @@ import {PlasticSimModal} from './components/modal/plastic-sim-modal/plastic-sim-
     Steps,
     FixedBtn,
     Cookie,
+    PlasticSimModal,
   ],
   standalone: true
 })

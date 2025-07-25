@@ -1,7 +1,7 @@
 import {Component, inject} from '@angular/core';
 import {Modal} from '../modal';
 import {ModalService} from '../../../services/modal';
-import {PlasticSimModal} from '../plastic-sim-modal/plastic-sim-modal';
+import {PlasticSimModalState} from '../../../services/plastic-sim-modal-state';
 import {SimIcon} from '../../svg/sim-icon/sim-icon';
 import {Arrow} from '../../svg/arrow/arrow';
 import {EsimIcon} from '../../svg/esim-icon/esim-icon';
@@ -11,12 +11,17 @@ import {EsimIcon} from '../../svg/esim-icon/esim-icon';
   imports: [Modal, SimIcon, Arrow, EsimIcon],
   templateUrl: './sim-modal.html',
   styleUrl: './sim-modal.scss',
-  standalone: true
+  standalone: true,
 })
 export class SimModal {
-  private modalService = inject(ModalService);
+  private readonly plasticSimModalState = inject(PlasticSimModalState);
+  protected modalService = inject(ModalService)
 
   onPlasticClick(): void {
-    this.modalService.open(PlasticSimModal);
+    this.plasticSimModalState.open();
+  }
+
+  close() {
+      this.modalService.close();
   }
 }

@@ -1,3 +1,80 @@
+.modal-content {
+  background: #ffffff;
+  border-radius: 16px 16px 0 0;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  width: 100dvw;
+  height: 100dvh;
+  overflow: hidden;
+  transform: translateY(100%);
+  opacity: 0;
+  visibility: hidden;
+
+  transition: transform 0.2s ease, opacity 0.2s ease, visibility 0.2s ease;
+  touch-action: pan-y;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+
+  &.visible {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.modal-swipe-indicator {
+  width: 36px;
+  height: 4px;
+  background: rgba(67, 76, 94, 0.20);
+  border-radius: 2px;
+  margin: 4px auto 0;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 48px 0 24px;
+  border: none;
+  min-height: 24px;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #434C5E;
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: absolute;
+  right: 16px;
+  top: 9px;
+  z-index: 10;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+
+  &:hover {
+    color: black;
+  }
+
+  &:active {
+    color: black;
+  }
+}
+
+.modal-body {
+  padding: 20px;
+  overflow-y: auto;
+  max-height: calc(100dvh - 28px);
+}
+
 .iframe-container {
   width: 100%;
   height: 100%;
@@ -7,7 +84,7 @@
 
 iframe {
   width: 100%;
-  height: calc(90dvh - 88px);
+  height: calc(100dvh - 75px);
   border: none;
   border-radius: 0;
   background: #ffffff;

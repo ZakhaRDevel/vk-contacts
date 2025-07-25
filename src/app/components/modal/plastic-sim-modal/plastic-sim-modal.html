@@ -1,9 +1,29 @@
-<app-modal>
-  <div class="iframe-container">
-    <iframe
-      src="https://www.yota.ru/voice/order-sim-new-iframe?device_id=3067404"
-      title="Заказ SIM-карты"
-      loading="lazy"
-    ></iframe>
+<div
+  class="modal-content"
+  [class.visible]="isVisible()"
+  swipeDown
+  [threshold]="100"
+  (swipeDown)="onSwipeDown()"
+>
+  <div class="modal-swipe-indicator"></div>
+  <div class="modal-header">
+    <button
+      class="modal-close"
+      (click)="close()"
+      (touchstart)="close()"
+      type="button"
+      aria-label="Закрыть"
+    >
+      <app-close-icon/>
+    </button>
   </div>
-</app-modal>
+  <div class="modal-body">
+    <div class="iframe-container">
+      <iframe
+        src="https://www.yota.ru/voice/order-sim-new-iframe?device_id=3067404"
+        title="Заказ SIM-карты"
+        loading="lazy"
+      ></iframe>
+    </div>
+  </div>
+</div>
